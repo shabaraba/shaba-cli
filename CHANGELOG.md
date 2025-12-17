@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/shabaraba/shaba-cli/compare/v0.1.2...v0.1.3) (2025-12-17)
+
+
+### Bug Fixes
+
+* add bun install step to release workflow ([ca31444](https://github.com/shabaraba/shaba-cli/commit/ca31444911c0454ffcecb97ed4b63ecd04fc8cc5))
+
 ## [0.1.2](https://github.com/shabaraba/shaba-cli/compare/v0.1.1...v0.1.2) (2025-12-17)
 
 
