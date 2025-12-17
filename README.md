@@ -4,29 +4,27 @@ Personal CLI toolkit by shabaraba.
 
 ## Installation
 
+### Homebrew (macOS / Linux)
+
+```bash
+# Add tap
+brew tap shabaraba/tap
+
+# Install
+brew install shaba-cli
+```
+
+### npm
+
 ```bash
 npm install -g @shabaraba/shaba-cli
 ```
 
-Or run directly with npx:
+### npx (no installation)
 
 ```bash
 npx @shabaraba/shaba-cli <command>
 ```
-
-## Setup
-
-### Required GitHub Secret
-
-For automated Homebrew tap updates, create a Personal Access Token (PAT) and add it to repository secrets:
-
-1. Go to https://github.com/settings/tokens/new
-2. Generate token with scope: `repo` (Full control of private repositories)
-3. Copy the token
-4. Go to https://github.com/shabaraba/shaba-cli/settings/secrets/actions
-5. Click "New repository secret"
-6. Name: `TAP_UPDATE_TOKEN`
-7. Value: (paste your token)
 
 ## Commands
 
@@ -71,6 +69,10 @@ shaba-cli gh repo-init -v 1.0.0
 # Skip branch protection (files only)
 shaba-cli gh repo-init --no-branch-protection
 ```
+
+## Documentation
+
+- [Development Guide](docs/DEVELOPMENT.md) - Repository structure, release flow, development setup
 
 ## License
 
