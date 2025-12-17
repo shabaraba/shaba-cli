@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/shabaraba/shaba-cli/compare/v0.1.4...v0.1.5) (2025-12-17)
+
+
+### Bug Fixes
+
+* remove macOS Intel build (arm64 only) ([0eac04b](https://github.com/shabaraba/shaba-cli/commit/0eac04b883131b794e55edf4b9188bc9aa13b268))
+
 ## [0.1.4](https://github.com/shabaraba/shaba-cli/compare/v0.1.3...v0.1.4) (2025-12-17)
 
 
