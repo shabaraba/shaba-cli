@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/shabaraba/shaba-cli/compare/v0.1.5...v0.1.6) (2025-12-17)
+
+
+### Bug Fixes
+
+* use PAT for Homebrew tap update ([fae4cbf](https://github.com/shabaraba/shaba-cli/commit/fae4cbfcaf21bd7d8298dab4e4100bf21567a97b))
+
 ## [0.1.5](https://github.com/shabaraba/shaba-cli/compare/v0.1.4...v0.1.5) (2025-12-17)
 
 
