@@ -3,11 +3,21 @@ import { execFileSync } from 'child_process';
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import chalk from 'chalk';
 
+interface RepoInfo {
+  owner: string;
+  repo: string;
+}
+
+interface RepoInitOptions {
+  version: string;
+  branchProtection: boolean;
+}
+
 export const repoInit = new Command('repo-init')
   .description('Initialize repository with release-please and branch protection')
   .option('-v, --version <version>', 'Initial version', '0.1.0')
   .option('--no-branch-protection', 'Skip branch protection setup')
-  .action(async (options) => {
+  .action(async (options: RepoInitOptions) => {
     try {
       const repoInfo = getRepoInfo();
       console.log(chalk.blue(`\nSetting up repository: ${repoInfo.owner}/${repoInfo.repo}\n`));
@@ -28,12 +38,13 @@ export const repoInit = new Command('repo-init')
       console.log('  2. Merge to main branch via PR');
       console.log('  3. release-please will create a release PR automatically\n');
     } catch (error) {
-      console.error(chalk.red(`Error: ${error.message}`));
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      console.error(chalk.red(`Error: ${message}`));
       process.exit(1);
     }
   });
 
-function getRepoInfo() {
+function getRepoInfo(): RepoInfo {
   const remoteUrl = execFileSync('git', ['remote', 'get-url', 'origin'], {
     encoding: 'utf-8'
   }).trim();
@@ -45,7 +56,7 @@ function getRepoInfo() {
   return { owner: match[1], repo: match[2] };
 }
 
-function createReleasePleaseWorkflow() {
+function createReleasePleaseWorkflow(): void {
   const workflowDir = '.github/workflows';
   const workflowPath = `${workflowDir}/release-please.yml`;
 
@@ -79,7 +90,7 @@ jobs:
   console.log(chalk.green(`✓ Created ${workflowPath}`));
 }
 
-function createReleasePleaseConfig() {
+function createReleasePleaseConfig(): void {
   const content = {
     "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
     "packages": {
@@ -104,13 +115,13 @@ function createReleasePleaseConfig() {
   console.log(chalk.green('✓ Created release-please-config.json'));
 }
 
-function createReleasePleaseManifest(version) {
+function createReleasePleaseManifest(version: string): void {
   const content = { ".": version };
   writeFileSync('.release-please-manifest.json', JSON.stringify(content, null, 2) + '\n');
   console.log(chalk.green(`✓ Created .release-please-manifest.json (v${version})`));
 }
 
-function setupBranchProtection(repoInfo) {
+function setupBranchProtection(repoInfo: RepoInfo): void {
   const { owner, repo } = repoInfo;
   console.log(chalk.blue('Setting up branch protection...'));
 
@@ -137,7 +148,7 @@ function setupBranchProtection(repoInfo) {
   console.log(chalk.green('✓ Branch protection enabled (PR-only merges)'));
 }
 
-function setupAutoDeleteBranch(repoInfo) {
+function setupAutoDeleteBranch(repoInfo: RepoInfo): void {
   const { owner, repo } = repoInfo;
 
   execFileSync('gh', [
@@ -150,7 +161,7 @@ function setupAutoDeleteBranch(repoInfo) {
   console.log(chalk.green('✓ Auto-delete merged branches enabled'));
 }
 
-function setupActionsPermissions(repoInfo) {
+function setupActionsPermissions(repoInfo: RepoInfo): void {
   const { owner, repo } = repoInfo;
 
   execFileSync('gh', [

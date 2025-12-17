@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import { ghCommand } from '../src/commands/gh/index.js';
+import { ghCommand } from './commands/gh';
 
 program
   .name('shaba-cli')
