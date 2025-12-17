@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.7](https://github.com/shabaraba/shaba-cli/compare/v0.1.6...v0.1.7) (2025-12-17)
+
+
+### Features
+
+* add pre-commit hook to prevent local commits to main ([713a409](https://github.com/shabaraba/shaba-cli/commit/713a409268b2a6b3a8fdffb78b144f799b61e3a5))
+
+
+### Documentation
+
+* add Homebrew installation and development guide ([9e32601](https://github.com/shabaraba/shaba-cli/commit/9e32601b64d704ea857268432d025d29bdfa89fb))
+
 ## [0.1.6](https://github.com/shabaraba/shaba-cli/compare/v0.1.5...v0.1.6) (2025-12-17)
 
 
