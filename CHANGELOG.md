@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/shabaraba/shaba-cli/compare/v0.1.1...v0.1.2) (2025-12-17)
+
+
+### Bug Fixes
+
+* always enable auto-delete branches and actions permissions ([73bf540](https://github.com/shabaraba/shaba-cli/commit/73bf5401580641064ec2c6073fbfc5b74a00f512))
+
 ## [0.1.1](https://github.com/shabaraba/shaba-cli/compare/v0.1.0...v0.1.1) (2025-12-17)
 
 

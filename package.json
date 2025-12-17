@@ -1,6 +1,6 @@
 {
   "name": "@shabaraba/shaba-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Personal CLI toolkit by shabaraba",
   "type": "module",
   "bin": {
