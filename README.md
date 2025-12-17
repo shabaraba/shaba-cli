@@ -48,9 +48,10 @@ shaba-cli gh repo-init [options]
 1. Creates `.github/workflows/release-please.yml` - Automates release PR creation
 2. Creates `release-please-config.json` - Configures semantic versioning
 3. Creates `.release-please-manifest.json` - Tracks current version
-4. Sets up branch protection on `main` (PR-only merges)
-5. Enables auto-delete for merged branches
-6. Grants GitHub Actions permission to create PRs
+4. Installs pre-commit hook - Prevents local commits to main branch
+5. Sets up branch protection on `main` (PR-only merges on GitHub)
+6. Enables auto-delete for merged branches
+7. Grants GitHub Actions permission to create PRs
 
 **Prerequisites:**
 

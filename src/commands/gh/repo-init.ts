@@ -25,6 +25,7 @@ export const repoInit = new Command('repo-init')
       createReleasePleaseWorkflow();
       createReleasePleaseConfig();
       createReleasePleaseManifest(options.version);
+      setupPreCommitHook();
 
       // Always set these repository settings
       setupAutoDeleteBranch(repoInfo);
@@ -175,4 +176,31 @@ function setupActionsPermissions(repoInfo: RepoInfo): void {
   ], { stdio: ['pipe', 'pipe', 'pipe'] });
 
   console.log(chalk.green('✓ GitHub Actions PR permissions enabled'));
+}
+
+function setupPreCommitHook(): void {
+  const hookDir = '.git/hooks';
+  const hookPath = `${hookDir}/pre-commit`;
+
+  if (!existsSync(hookDir)) {
+    throw new Error('.git directory not found. Make sure you are in a git repository.');
+  }
+
+  const hookContent = `#!/bin/sh
+# Prevent commits directly to main branch
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$BRANCH" = "main" ]; then
+  echo "ERROR: Direct commits to main branch are not allowed."
+  echo "Please create a feature branch and submit a PR instead."
+  echo ""
+  echo "To create a feature branch:"
+  echo "  git checkout -b feature/your-feature-name"
+  exit 1
+fi
+`;
+
+  writeFileSync(hookPath, hookContent, { mode: 0o755 });
+  console.log(chalk.green('✓ Pre-commit hook installed (prevents commits to main)'));
 }
