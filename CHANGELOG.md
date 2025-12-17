@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/shabaraba/shaba-cli/compare/v0.1.3...v0.1.4) (2025-12-17)
+
+
+### Bug Fixes
+
+* update macOS runner from macos-13 to macos-15-large ([89e51c3](https://github.com/shabaraba/shaba-cli/commit/89e51c3b42b168dd18c154e55d7dd79b36e7fd32))
+
 ## [0.1.3](https://github.com/shabaraba/shaba-cli/compare/v0.1.2...v0.1.3) (2025-12-17)
 
 
