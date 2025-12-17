@@ -26,10 +26,12 @@ export const repoInit = new Command('repo-init')
       createReleasePleaseConfig();
       createReleasePleaseManifest(options.version);
 
+      // Always set these repository settings
+      setupAutoDeleteBranch(repoInfo);
+      setupActionsPermissions(repoInfo);
+
       if (options.branchProtection) {
         setupBranchProtection(repoInfo);
-        setupAutoDeleteBranch(repoInfo);
-        setupActionsPermissions(repoInfo);
       }
 
       console.log(chalk.green('\n✓ Repository setup complete!\n'));
