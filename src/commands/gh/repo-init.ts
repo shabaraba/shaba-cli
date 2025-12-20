@@ -134,7 +134,7 @@ function setupBranchProtection(repoInfo: RepoInfo): void {
       require_code_owner_reviews: false,
       required_approving_review_count: 0
     },
-    enforce_admins: false,
+    enforce_admins: true,
     required_status_checks: null,
     restrictions: null,
     allow_force_pushes: false,
@@ -148,7 +148,7 @@ function setupBranchProtection(repoInfo: RepoInfo): void {
     '--input', '-'
   ], { input: payload, stdio: ['pipe', 'pipe', 'pipe'] });
 
-  console.log(chalk.green('✓ Branch protection enabled (PR-only merges)'));
+  console.log(chalk.green('✓ Branch protection enabled (PR-only merges, enforced for admins)'));
 }
 
 function setupAutoDeleteBranch(repoInfo: RepoInfo): void {
