@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.8](https://github.com/shabaraba/shaba-cli/compare/v0.1.7...v0.1.8) (2025-12-20)
+
+
+### Bug Fixes
+
+* enforce branch protection for admins ([1eb6415](https://github.com/shabaraba/shaba-cli/commit/1eb64158242772bbcb42ccf6ff82b9090ad6ddda))
+
 ## [0.1.7](https://github.com/shabaraba/shaba-cli/compare/v0.1.6...v0.1.7) (2025-12-17)
 
 
